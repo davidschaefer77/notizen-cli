@@ -1,0 +1,10 @@
+# Ignoriere Cache-Dateien
+__pycache__/
+*.pyc
+
+# Mac-spezifisch
+.DS_Store
+
+# Persönliche Dateien (wenn du sie hast)
+notes.txt
+.env
