@@ -4,12 +4,12 @@ NOTIZDATEI = "notes.txt"
 
 def lade_notizen():
     try:
-        with open(NOTIZDATEI, "r") as f:
-            return [zeile.strip() for zeile in f.readlines()]
+        with open(NOTIZDATEI, "r") as datei:
+            return [zeile.strip() for zeile in datei.readlines()]
     except FileNotFoundError:
         return []
 
 def speichere_notizen(notizen):
-    with open(NOTIZDATEI, "w") as f:
+    with open(NOTIZDATEI, "w") as datei:
         for note in notizen:
-            f.write(note + "\n")
+            datei.write(note + "\n")
