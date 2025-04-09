@@ -24,7 +24,7 @@ def hauptmenue():
             notizen.append(command)
             speichere_notizen(notizen)
         else:
-            print("⚠️ Leere Notiz wird nicht gespeichert.")
+            print("❓ Unbekannter Befehl. Erlaubt sind: exit, delete, edit, search oder direkt eine Notiz.")
 
     formatiere_ausgabe(notizen)
 

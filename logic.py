@@ -11,7 +11,6 @@ def formatiere_ausgabe(notizen: list[str]) -> None:
         print(f"{i}. {note}")
 
 def notiz_loeschen(notizen: list[str]) -> list[str]:
-    """Löscht eine Notiz basierend auf Nummerneingabe."""
     try:
         nummer = int(input("Welche Notiznummer möchtest du löschen? "))
         if 1 <= nummer <= len(notizen):
@@ -21,8 +20,10 @@ def notiz_loeschen(notizen: list[str]) -> list[str]:
             print("❌ Ungültige Nummer.")
     except ValueError:
         print("⚠️ Bitte eine gültige Zahl eingeben.")
-    
+    except IndexError:
+        print("❌ Diese Notiz existiert nicht.")
     return notizen
+
 
 def notiz_suchen(notizen: list[str]) -> None:
     """Sucht nach Notizen, die ein Stichwort enthalten."""
@@ -37,7 +38,6 @@ def notiz_suchen(notizen: list[str]) -> None:
         print("❌ Keine Notiz gefunden.")
 
 def notiz_bearbeiten(notizen: list[str]) -> list[str]:
-    """Bearbeitet eine Notiz anhand der Nummer."""
     try:
         nummer = int(input("Welche Notiz möchtest du bearbeiten? "))
         if 1 <= nummer <= len(notizen):
@@ -49,10 +49,12 @@ def notiz_bearbeiten(notizen: list[str]) -> list[str]:
             else:
                 print("⚠️ Kein Text eingegeben – nichts geändert.")
         else:
-            print("❌ Ungültige Nummer.")
+            print("❌ Ungültige Notiznummer.")
     except ValueError:
-        print("⚠️ Bitte eine gültige Zahl eingeben.")
-
+        print("⚠️ Bitte gib eine Zahl ein.")
+    except IndexError:
+        print("❌ Diese Notiz existiert nicht.")
     return notizen
+
 
 
