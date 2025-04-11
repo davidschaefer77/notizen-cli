@@ -1,4 +1,9 @@
-from storage import lade_notizen, speichere_notizen
+from storage import (
+    lade_notizen,
+    speichere_notizen,
+    exportiere_notizen_als_json
+)
+
 from logic import (
     validiere_notiz,
     formatiere_ausgabe,
@@ -13,7 +18,9 @@ def begruessung():
     print("  • delete → Notiz löschen")
     print("  • edit   → Notiz bearbeiten")
     print("  • search → Notiz suchen")
-    print("  • exit   → Beenden\n")
+    print("  • exit   → Beenden")
+    print("  • export → Exportieren\n")
+
 
 def menue_loop():
     notizen = lade_notizen()
@@ -32,6 +39,8 @@ def menue_loop():
             speichere_notizen(notizen)
         elif command == "search":
             notiz_suchen(notizen)
+        elif command == "export":
+            exportiere_notizen_als_json(notizen)
         elif validiere_notiz(command):
             notizen.append(command)
             speichere_notizen(notizen)

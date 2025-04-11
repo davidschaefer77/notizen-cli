@@ -6,6 +6,6 @@ __pycache__/
 .DS_Store
 
 # Persönliche Dateien (wenn du sie hast)
-notes.txt
+notes.json
 .env
 notes.txt
