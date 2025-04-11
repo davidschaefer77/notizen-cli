@@ -1,4 +1,6 @@
 import json
+import csv
+
 
 NOTIZDATEI = "notes.txt"
 
@@ -31,4 +33,18 @@ def exportiere_notizen_als_json(notizen: list[str], dateiname: str = "notizen.js
         print(f"✅ Notizen erfolgreich in {dateiname} exportiert.")
     except IOError:
         print("❌ Fehler beim Exportieren der JSON-Datei.")
+
+def exportiere_notizen_als_csv(notizen: list[str], dateiname: str = "notizen.csv") -> None:
+    """Exportiert Notizen als CSV-Datei mit Nummerierung."""
+    try:
+        with open(dateiname, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["Nr", "Notiz"])  # Kopfzeile
+
+            for i, note in enumerate(notizen, start=1):
+                writer.writerow([i, note])
+
+        print(f"✅ Notizen erfolgreich in {dateiname} exportiert.")
+    except IOError:
+        print("❌ Fehler beim Exportieren der CSV-Datei.")
 
